@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input to Array</title>
+</head>
+<style>
+    .display, .controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    textarea {
+        width: 40%;
+        margin: 5%;
+    }
+</style>
+
+<body>
+
+    <div class="display">
+        <textarea rows=10 id="input"></textarea>
+        <textarea id="output"></textarea>
+
+    </div>
+    <div class="controls">
+        <select id="formatSelect">
+            <option>String</option>
+            <option>Int</option>
+            <option>Float</option>
+        </select>
+        <button onclick="inputToArray()">Convert</button>
+        <button onclick="copyText()">Copy output</button>
+    </div>
+    <script>
+        // Setup
+        let input = document.getElementById("input");
+        let output = document.getElementById("output");
+        let formatSelect = document.getElementById("formatSelect");
+
+        function inputToArray() {
+            let inputVal = input.value;
+            inputVal = inputVal.split('\n');
+            let outputVal = [];
+
+            if (formatSelect.value == "Int") {
+                outputVal = inputVal.map(val => parseInt(val));
+            }
+            if (formatSelect.value == "Float") {
+                outputVal = inputVal.map(val => parseFloat(val));
+            }
+            if (formatSelect.value == "String") {
+                outputVal = inputVal.map(val => `"${val}"`);
+            }
+
+            output.value = `[${outputVal}]`;
+        }
+
+        function copyText() {
+            /* Select the text field */
+            output.select();
+            output.setSelectionRange(0, 99999); /*For mobile devices*/
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+
+        }
+
+    </script>
+</body>
+
+</html>
