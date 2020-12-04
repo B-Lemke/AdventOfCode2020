@@ -1,0 +1,17 @@
+body {
+    background: green;
+}
+
+.display {
+    width: 90%;
+    margin: 2.5%;
+    background: lightgreen;
+    padding: 2.5%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px darkgreen;
+}
+
+a {
+    display: block;
+    margin-top: 10px;
+}

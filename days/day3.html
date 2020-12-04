@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 3</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>
@@ -18,6 +19,7 @@
         <div class="answer2"></div>
         <div class="answer2TimeDisplay"></div>
 
+        <a href="/index.html"> Home </a>
     </div>
 
     <script>
@@ -59,10 +61,12 @@
             return treecount;
         }
 
+        let answer1 = checkTreeTravel(3,1);
+
         // End timer answer 1, display
         let answer1EndTime = performance.now();
         answer1TimeDisplay.innerHTML = `Answer 1 took ${answer1EndTime - answer1StartTime}ms.`
-        answer1display.innerHTML = `${checkTreeTravel(3,1)}`;
+        answer1display.innerHTML = `${answer1}`;
 
         // Start timer answer 2
         let answer2StartTime = performance.now();
